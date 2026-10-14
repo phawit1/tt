@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090e1b"><title>MotionFit AI — Move with purpose</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+<header><a class="brand" href="#"><span class="logo">M</span>MotionFit <b>AI</b></a><span class="live"><i></i> AI MOTION TRACKING</span><button id="help" class="help" aria-label="Help">?</button></header>
+<section class="hero"><div><p class="eyebrow">YOUR PERSONAL MOVEMENT COACH</p><h1>Move better.<br><span>Feel stronger.</span></h1><p class="sub">Turn everyday movement into a game. Follow the target, complete each mission, and let AI track your progress.</p></div><div class="session">✦ <div><small>SESSION MODE</small><b>Free Training</b></div></div></section>
+<div class="layout">
+<main>
+<section class="panel"><div class="panelhead"><div><p class="eyebrow">LIVE CAMERA</p><h2>Movement studio</h2></div><span id="cameraStatus" class="pill">● Camera off</span></div>
+<div class="stage" id="stage"><video id="video" autoplay muted playsinline></video><canvas id="canvas"></canvas><div class="placeholder" id="placeholder"><div class="lens">◎</div><h3>Ready when you are</h3><p>Allow camera access to start AI pose tracking.</p><button id="startCamera" class="primary">Enable camera ↗</button></div><span id="tracking" class="tracking">POSE NOT DETECTED</span><div id="poseFeedback" class="pose-feedback state-tracking" role="status" aria-live="polite"><span id="poseFeedbackIcon" class="pose-feedback-icon">◎</span><div><b id="poseFeedbackTitle">Waiting for pose</b><small id="poseFeedbackText">Enable camera to begin</small></div></div></div>
+<div class="camfoot"><p id="coach">Stand where your full body is visible to the camera.</p><button id="stopCamera" class="secondary" disabled>Stop camera</button></div><p class="note">Camera processing runs in your browser. Use HTTPS (or localhost) for camera access.</p></section>
+<section class="panel"><div class="panelhead"><div><p class="eyebrow">CHOOSE YOUR CHALLENGE</p><h2>Training missions</h2></div><span class="muted">3 MISSIONS</span></div><div class="missions">
+<button class="mission selected" data-id="balance"><span class="art mint">◉</span><span class="num">01</span><b>Balance hold</b><small>Reach the target and hold steady</small><em>30 sec · Stability</em></button>
+<button class="mission" data-id="step"><span class="art blue">↔</span><span class="num">02</span><b>Side step</b><small>Step out, then return to center</small><em>60 sec · Agility</em></button>
+<button class="mission" data-id="squat"><span class="art purple">⌁</span><span class="num">03</span><b>Squat challenge</b><small>Squat down and stand tall</small><em>60 sec · Strength</em></button>
+</div></section>
+</main>
+<aside>
+<section class="panel scorepanel"><div class="panelhead"><div><p class="eyebrow">YOUR PERFORMANCE</p><h2>Session score</h2></div><span class="spark">✦</span></div><div class="score"><strong id="score">0</strong><span>PTS</span></div><div class="bar"><i id="scorebar"></i></div><div class="stats"><div><small>COMPLETED</small><b id="reps">0 <em>reps</em></b></div><div><small>TIME LEFT</small><b id="time">30 <em>sec</em></b></div></div><hr><div class="target"><div><small>CURRENT TARGET</small><b id="target">Reach & hold</b></div><span id="targetnum">01</span></div><button id="begin" class="primary wide">Start mission →</button><button id="reset" class="textbutton">Reset session</button></section>
+<section class="panel goal-panel"><div class="panelhead"><div><p class="eyebrow">YOUR NEXT ACTION</p><h2>What should I do?</h2></div><span class="spark">◎</span></div><div class="goal-summary"><span id="goalStep" class="goal-step">STEP 1 OF 2</span><b id="goalTitle">Move into the target</b><p id="goalDescription">Stand in view of the camera, then gently shift your upper body to one side.</p></div><div class="goal-visual" id="goalVisual"><div class="goal-person"><span class="head"></span><span class="torso"></span><span class="arm left"></span><span class="arm right"></span><span class="leg left"></span><span class="leg right"></span></div><span class="goal-arrow">↔</span></div><div class="readout"><b id="balanceLabel">Waiting for body</b><span id="percent">—</span></div><div class="meter" aria-label="Body position indicator"><i id="marker"></i></div><div class="labels"><span>← LEFT</span><span>GREEN = TARGET</span><span>RIGHT →</span></div><div class="feedback"><i id="dot"></i><p id="feedback">Enable your camera. The skeleton overlay will appear when your body is detected.</p></div><div class="detector-status" id="detectorStatus"><span class="detector-dot"></span><span id="detectorText">Body detector: camera off</span></div></section>
+<section class="panel"><div class="panelhead"><div><p class="eyebrow">TODAY'S ACTIVITY</p><h2>Progress</h2></div><span class="spark">✧</span></div><div class="progressrow"><div id="circle" class="circle"><span id="progress">0%</span></div><div><b id="progressTitle">Let's get moving</b><p id="progressDesc">Complete a mission to build your streak.</p></div></div><div class="bar"><i id="progressbar"></i></div></section>
+</aside></div><footer><span>© 2026 MotionFit AI</span><span>Move at your own pace · Take breaks when needed</span></footer></div>
+<dialog id="helpDialog"><button id="closeHelp" class="close">×</button><p class="eyebrow">QUICK GUIDE</p><h2>How to play</h2><ol><li><b>Set up your space.</b> Place your iPad or laptop steadily and make sure your body is visible.</li><li><b>Enable the camera.</b> Stand back far enough for the camera to see your body.</li><li><b>Choose a mission.</b> Follow the coaching message and complete the movement.</li><li><b>Earn points.</b> Hold the balance target or complete a full movement cycle.</li></ol><p class="note">Student project prototype, not a medical or professional fitness assessment. Stop if you feel pain, dizziness, or discomfort.</p><button id="gotIt" class="primary wide">Got it</button></dialog>
+<dialog id="tutorialDialog" class="tutorial-dialog">
+  <button id="closeTutorial" class="close" aria-label="Close tutorial">×</button>
+  <p class="eyebrow">BEFORE YOU PLAY · <span id="tutorialStep">MISSION 01</span></p>
+  <div class="tutorial-visual" id="tutorialVisual"><span id="tutorialIcon">◉</span><span class="visual-ring"></span></div>
+  <h2 id="tutorialTitle">Learn the movement</h2>
+  <p id="tutorialIntro" class="tutorial-intro">Follow these simple steps before starting your mission.</p>
+  <div id="tutorialSteps" class="tutorial-steps"></div>
+  <div class="tutorial-tip"><span>✦</span><p id="tutorialTip">Keep your full body visible to the camera and move at your own pace.</p></div>
+  <div class="tutorial-actions"><button id="skipTutorial" class="secondary">Maybe later</button><button id="startFromTutorial" class="primary">I’m ready — start →</button></div>
+</dialog>
+<div id="toast" class="toast"></div>
+<script type="module" src="app.js"></script></body></html>
